@@ -2,7 +2,8 @@
 <app-error *ngIf="showError">
     <app-error-message message="Please Enter item and description" [numberOfAttempts]="numberOfAttempts"></app-error-message>
 </app-error>
-<form class="formbox" [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+<form class="formbox" [formGroup]="itemForm" 
+(ngSubmit)="onSubmit()">
   <div class="form-group">
     <div class="row">
       <div class="col-md-4">
@@ -11,8 +12,14 @@
       <div class="col-md-8">
         <label for="item" class="sr-only">Add Item</label>
         <input type="text"
-        numberonly
-        formControlName="name" class="form-control" id="item" placeholder="Item" required>
+        formControlName="name" 
+        class="form-control" id="item" placeholder="Item">
+      
+      </div>
+      <div *ngIf="f.name.invalid && f.name.dirty" class="col-offset-md-4">
+        <div *ngIf="f.name.errors.required" class="text-danger">Name is required</div>
+        <div *ngIf="f.name.errors.minlength" class="text-danger">Name should be of minimum lenth 3</div>
+        <div *ngIf="f.name.errors.maxlength" class="text-danger">Name should be of maxlength lenth 8</div>
       </div>
   </div>
   <div class="row">
@@ -21,7 +28,10 @@
       </div>
       <div class="col-md-8">
         <label for="description" class="sr-only">Add Description</label>
-        <input type="text" formControlName="description" class="form-control" id="description" placeholder="Description" required>
+        <input type="text" 
+        formControlName="description"
+         class="form-control" id="description"
+          placeholder="Description" >
       </div>
   </div>
   <button type="submit" class="btn btn-warning">Add Item</button>

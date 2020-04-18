@@ -13,9 +13,16 @@ export class AddItemComponent implements OnInit {
   }
 
   itemForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
+    name: new FormControl('Kiran', [
+      Validators.required,
+      Validators.minLength(3),
+      Validators.maxLength(8)
+    ]),
+    description: new FormControl('Angular Trainer', Validators.required),
   });
+  get f(){
+    return this.itemForm.controls;
+  }
 
   showError = false;
   numberOfAttempts = 0;

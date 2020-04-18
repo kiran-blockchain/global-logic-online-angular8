@@ -13,7 +13,7 @@ export class NumbersOnly implements OnInit {
     }
     @HostListener('keypress',['$event'])
     handleKeyPress(e){
-        let regex = new RegExp(/^[0-9]*$/);
+        let regex = new RegExp(e.target.pattern);
         console.log(e);
         if(!regex.test(e.target.value)){
             this.el.nativeElement.style="background-color:red"
