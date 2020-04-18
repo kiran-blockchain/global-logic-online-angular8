@@ -7,7 +7,8 @@ import {
   SimpleChanges,
   AfterViewInit,
   AfterViewChecked,
-  ViewChild } from '@angular/core';
+  ViewChild, 
+  KeyValueDiffers} from '@angular/core';
 import { tick } from '@angular/core/testing';
 import { AppService } from './app.service';
 import { Subject } from 'rxjs';
@@ -47,7 +48,9 @@ export class AppComponent  implements OnInit, OnChanges, DoCheck, OnDestroy, Aft
     this.showDesc = event;
   }
 
-  ngDoCheck() {}
+  ngDoCheck() {
+    console.log("I am the check event");
+  }
 
   ngOnInit() {
     // console.log('app component OnInit');
@@ -56,9 +59,10 @@ export class AppComponent  implements OnInit, OnChanges, DoCheck, OnDestroy, Aft
       // console.log(this.itemList.length);
     });
   }
+  differs: KeyValueDiffers
 
   ngOnChanges(changes: SimpleChanges) {
-    // console.log('app component::::ngOnChanges:');
+     console.log('app component::::ngOnChanges:');
   }
 
   ngAfterViewInit() {
@@ -70,6 +74,9 @@ export class AppComponent  implements OnInit, OnChanges, DoCheck, OnDestroy, Aft
 
   ngAfterViewChecked() {
     console.log('ngAfterViewChecked:::::app component');
+    // setTimeout(() => {
+    //   this.footerComponent.numberOfItems = this.itemList.length;
+    // });
   }
 
 

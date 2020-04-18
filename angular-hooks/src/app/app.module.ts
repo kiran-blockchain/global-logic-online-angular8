@@ -13,6 +13,8 @@ import { DisplayListComponent } from './display/display-list.component';
 import { DisplayCardComponent } from './display/display-card.component';
 import { ErrorComponent } from './error/error.component';
 import { ErrorMessageComponent } from './error/error-message.component';
+import { RestrictDirective } from './restrict.directive';
+import { NumbersOnly } from './numberOnly';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { ErrorMessageComponent } from './error/error-message.component';
     DisplayListComponent,
     DisplayCardComponent,
     ErrorComponent,
-    ErrorMessageComponent
+    ErrorMessageComponent,
+    RestrictDirective,
+    NumbersOnly
   ],
   imports: [
     BrowserModule,
