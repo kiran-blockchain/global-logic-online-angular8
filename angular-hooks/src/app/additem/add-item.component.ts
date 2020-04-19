@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import ValidateDomain from '../domainValiator';
 
 @Component({
   selector: 'app-add-item',
@@ -18,7 +19,7 @@ export class AddItemComponent implements OnInit {
       Validators.minLength(3),
       Validators.maxLength(8)
     ]),
-    description: new FormControl('Angular Trainer', Validators.required),
+    description: new FormControl('', [Validators.required,ValidateDomain]),
   });
   get f(){
     return this.itemForm.controls;

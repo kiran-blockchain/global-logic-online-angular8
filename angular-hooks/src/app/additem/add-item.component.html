@@ -33,6 +33,10 @@
          class="form-control" id="description"
           placeholder="Description" >
       </div>
+      <div *ngIf="f.description.invalid && f.description.dirty" class="col-offset-md-4">
+        <div *ngIf="f.description.errors.ValidateDomain" class="text-danger">Invalid Domain</div>
+        
+      </div>
   </div>
   <button type="submit" class="btn btn-warning">Add Item</button>
   </div>
